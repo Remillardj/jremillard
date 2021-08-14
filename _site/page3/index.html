@@ -30,7 +30,6 @@
         <header>
     <div class="container-fluid text-center text-break">
         <h1><a href="/">a simple blog for various thoughts and examples</a></h1>
-        <p class="lead">it helps me learn a thing or two.</p>
     </div>
 </header>
         
@@ -40,40 +39,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-break">
-                <h2 id="post-title">3 Tips To Keep Your Home Network Secure</h2>
+                <h2 id="post-title">Home Lab</h2>
                 <p class="lead">
-                    <p>As technology around us becomes more advanced and connected to the internet, there becomes more of a reach of vulnerability with our day to day lives. While going to friends and family houses, I have noticed that regular consumer or day-to-day people are hardly aware of how easy it is for hackers to own their network. So to spread awareness, here are three tips to help keep your home network secure.</p>
+                    <h1 id="real-home-lab">Real home lab</h1>
+<p>I’ve seen several posts on Hacker News regarding setting up a home lab. One thing that really itches is a standard definition of what a home lab is. Frankly, it’s too broad to have a set definition of ‘X’ amount switches, servers, and what you need to do with it. A home lab is the definition in of itself, it’s a lab. It’s a place to learn by trial and error, use new technologies.</p>
 
-<h2 id="1-set-a-router-password">1. Set a router password</h2>
-<p>Most people are not aware that you can access your routers machine by entering it’s <a href="https://en.wikipedia.org/wiki/IP_address">Internet Protocol (IP)</a> Address when connected to your WiFi. You can find the router or modems IP address by opening up Command Prompt for Windows and typing in the following code.</p>
+<h2 id="house">House</h2>
+<p>It’s about time but I finally got a house, now I can set up a real lab. Fortunately and unfortunately, the laundry room is an isolated room accessed via the garage, however, there <em>is</em> cooling via vent from the AC, <em>and</em> get this, a vent for heat to exhaust out of from the water heater. WOW! Holy grail of natural media room.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipconfig
-</code></pre></div></div>
-<p>Scroll down using the scroll bar, and look for a set of numbers by ‘Default Gateway’, that will look something along the lines of 10.0.0.1 or 192.168.1.1</p>
+<h2 id="setting-up">Setting up</h2>
+<p>I fortunately had a mini server rack with a fully loaded Dell R710 and R620. Originally, I had Cisco L2 managed switches which I used as a unmanaged. I also was able to obtain netgear 4 drive NAS 1U server with 4 8TB Red WD’s. Using CAT5e cable I was able to reach near 500MB of transfer speed, making sharing files within the LAN quite quick. I had a Ubiquiti EdgeRouter with a bridged port to a Eero mesh network to allow WiFi and another port for hard wired devices like the servers and mini PC’s. I also set up the EdgeRouter’s built-in dnsmasq service to allow hostnames to be considered part of a local domain ‘myraidify.net’. This allowed the ability to create in-house pages like uptime (decouvrir) and seamless loadbalancing as managing DHCP ip’s is a big PITA in a LAN based environment. I however upgraded to use Ubiquiti AP’s in lieu of Eero’s as the eero’s were first generation before bought out by Amazon, thus the hardware as dying. I went overboard and got two UAC-AP-Pro’s in a 900 sqft apartment. Which if you know, can reach 400 sqft with 1GB+ 5Ghz and my apartment being mostly drywall. The frequencies did interfere often, soon after though I moved out of the apartment.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>If you are on an Apple machine, you open Terminal and type in netstat -rn</td>
-      <td>grep default to figure out what the router IP address is. Or, you can open up System Preferences &gt; Network &gt; Click ‘Advanced’ &gt; Click ‘TCP/IP’. From there, there will be a row that says router, followed by the IP address.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>If you copy and paste that address into your web browser, it should pop up with a login pop up, or a login page. If you have not set your router or modems password, the username should be admin, and the password would be password. In some cases, there is not a username, and in some cases, there will no username and password. If you want to be sure, you can visit <a href="https://192-168-1-1ip.mobi/default-router-passwords-list/">this page</a> to see what your factory default password is.</p>
-
-<p>If you are able to get in, look around and set the router password to something secure that is easy to remember, but difficult to guess. You can use <a href="https://www.lastpass.com/password-generator">LastPass password generator</a> to generate a secure but easy to read passwords.</p>
-
-<h2 id="2-ensure-your-wifi-is-set-to-wpawpa2">2. Ensure your WiFi is set to WPA/WPA2</h2>
-<p>By default most routers when initially are set, set the WiFi encryption to WPS or WEP. Those encryptions can be pretty easily cracked, which can lead to consequences of intruders breaking into your network, and an ability to spy on your network activity. But rather, the fix is to change that to WPS to WPA/WPA2 or just WPA2. This makes it near impossible for people to break into your network.</p>
-
-<p>You can make this change on your computer, but it would be best to do this through your router or modem. Showing how to do this can be difficult because every router varies in terms of where this is, but the general idea of where you want to look for is, first, log onto your router. Then look for the menu and go to Wireless &gt; Click ‘Security Mode’ and select WPA/WPA2.</p>
-
-<h2 id="3-frequently-update-router-firmware">3. Frequently Update Router Firmware</h2>
-<p>The router you have has essentially its own operating system. Just like software or your computer needs to be updated, so does yours. This can help apply any new security patches or bug fixes. You can update the firmware from the webpage on your router and mode, access via it’s IP.</p>
+<h2 id="doing-it-right">Doing it right</h2>
+<p>I’m blogging while running on little sleep and non-stop patching, scheduling, handling appointments, and planning equipment for my new house that I purchased in Austin so bare with me. Moving in, I already knew what I wanted: Ubiquiti network with 3rd party physical security system with remote monitoring. The latter that comes to mind with it’s geurilla marketing is: simplisafe. I was skeptical and wanted the ability to not have to pay for monitoring but self monitor. It was a battle between Abode and SimpliSafe, but simplisafe won. For it’s simplicity, flexibility, and truly was easy to install. The hardware feels cheap but it works, literally works out of the box flawlessly and that made it. Now for network, I could easily do a mesh network like google and use the ethernet ports but I would still lose a TON of download speed. Even with a direct CAT6 cable from google wifi mesh router tied to the fiber jack. Going in, I want to do it right. I obtained the Ubiquiti dream machine, along with tons of camears, two 24 port PoE ethernet switchesm 4 bay NVR, and multiple UAP-AC-Pro’s. Installation is easy, the dream machine lives up to the name with it’s built in controller for all UI based gear (protect, etc). The most difficult part is getting wires to the second story, it’s either follow up with the vents in a compliance ethernet cable, follow along in a PVC cable with the water heater, or go outside into the attic to another PoE switch if necessary for PoE powered devices. Granted, the cable would need to be outdoor rated PVC cables. My only worry is how easy it is to cut the wires. Granted I can create a sensu-esque in-house tool based on pinging a cloud device to indicate local internet access. All in all, I’ll upload pictures when the server is complete. All in all, use 5Ghz with different frequencies to prevent collision within device connection and CAT6 cables to prevent crossover.</p>
 
                 </p>
-                <p class="text-muted font-italic font-weight-light">Posted on September  6, 2018</p>
+                <p class="text-muted font-italic font-weight-light">Posted on September  5, 2020</p>
                 <hr />
             </div>
         </div>
@@ -82,24 +63,122 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-break">
-                <h2 id="post-title">Breaking Into The Technology Field</h2>
+                <h2 id="post-title">Denied</h2>
                 <p class="lead">
-                    <p>A quick introduction: I started programming at the young age of 12 when I became fascinated with code after my friend showed me how websites were made. Since then, I have created a wide range of websites; a social network, text based games, command line interface, administrative and analytical tools, shells, and an intrusion detection software. My love and curiosity for programming has continued to grow ever since I landed an internship in software development and then as a field service technician. Now I am currently a part time IT Assistant for a local company, which I manage and set up the company’s web servers, phone system, work and network stations, and provide web development, in parallel with attending a local university.</p>
+                    <h1 id="denied">Denied</h1>
+<p>Being denied isn’t always something that bothers me. I accept it’s part of the statistic and I move on knowing I’ll hit the mark, but sometimes it can hit closer to home. Especially when my heart is really in it, it’s something I have worked towards, and when I don’t even have a reason why I was denied. It may seem like any typical problem, but realistically everyone, including myself, can push through it with a little mind-block. But sometimes its that specific denial that really drives it home. It puts you many steps back, you’re no longer at peak performance, things are wobbly, and focusing is more difficult. It’s that throwing-you-off denial that really strikes. Demoralizing.</p>
 
-<p>As a college student attending a local university in one of the biggest tech hub cities, it’s horribly competitive to get any internships or part time tech jobs, it’s to the point that it seems like all it takes is knowing the right person or starting your own company. I believe I can speak on behalf of the people in a similar situation, that it sucks. It sucks when entry level jobs require you to have a B.S. in C.S. along with 3–5 years of experience, making it nearly impossible for us young ones to get into this field. Although this is not an article to complain, I do believe that part of this is the cause of business’ not wanting to take a risk on young engineers.</p>
+<h2 id="karate">Karate</h2>
+<p>I did karate for a bit, and to my credit I got pretty darn good pretty darn quick. I worked really hard and pushed through a lot of self-doubts, whether put on myself or from others or another group. It was difficult but my eye was on the prize, knowing it was a statistic and weaponizing my youth. Ultimately what I think shielded me from a demoralizing denial is the fact that I couldn’t really compare myself. I was much older when I started where the sport at the level I was competing is filled with people that started when they were five years old. Occassionally, I ran into someone similar but it was always a good battle, I won here and they won there, not much to compare.</p>
 
-<blockquote>
-  <p>As a current college student attending a local university in one of the biggest tech hub cities, it’s horribly competitive to get any internships or part time tech jobs.</p>
-</blockquote>
+<h2 id="skateboarding">Skateboarding</h2>
+<p>As young as I was, as much of a hoon skaters are, I took it seriously. I really loved doing it and I would spend countless hours at the park just working on tricks and creating a style. I remember distinctly the confusion I had in my mind as to why my legs were not working to the standard it usually does. I was simply overworking them! I didn’t care that I couldn’t land a trick every time, I just loved the feeling of landing them. Of course like anyone, if I seemingly lost all my skills for a few days, it would be demoralizing and piss me off. It was a sport that I could compare since I was so young, it was really hard at times but it motivated me to work harder. Knowing “they did it, so can I”. I had several moments where the demoralizing denial was harsh but I was able to push through out of love for the sport.</p>
 
-<p>Understandably, it seems smarter from a business and financial standpoint to not take a risk on a young engineer, when you can get yourself an experienced engineer with decades of experience. But frankly, that supply of senior engineers will slowly diminish the longer you do not take a risk on fresh graduates or students.</p>
+<h2 id="technology">Technology</h2>
+<p>Fortunately I started young. And of course like anything, there was someone always better than me. However, I had the upperhand here in the group of people I knew. None of them were ever into tech so I got a headstart. I knew how to do a lot of things well before other people started to get into them, it was a good feeling being ahead of the curve. I did love learning and using the newfound knowledge, that was my overall focus though. So there wasn’t much to compare too other than what I couldn’t do before. The only demoralizing denials are the time where I was overwhelmed with a realm that really took time to understand. I did learn how to keep at it and I got there. Even with jobs, there were times I knew I could do the job better but the hiring manager preferred their nephew. Or when I knew I would fit the role perfectly yet I never received a call back, or even when everything went well and I was denied. It was all part of a statistic, sure it sucked but I knew there was something else out there for me. It was easy to move forward because all it took was going to indeed or LinkedIn and apply for a few more.</p>
 
-<p>In all honesty, there is plenty of entry level engineering jobs that do not require experience, it’s just somewhere else. I do live in a tech hub, where Amazon, Microsoft, and several other big companies have started, thus flooding the city with people that migrated to get a job, and thus the demand is more, and there is a limited amount of positions. It’s simply supply and demand issue. Thus increases the competition as there is more applicants than is jobs, obviously why it has become more difficult to get into the tech field.</p>
+<h2 id="racing">Racing</h2>
+<p>This is a new area for me. Something I just picked up a little over a year ago and it’s a great way to get humbled. I knew going into racing that it’s one of the most competitive fields out there, and there will always be someone much better as the talented is overflowing. This is an area where the motto I have of “hard work beats talent, when talent doesn’t work hard”, simply doesn’t apply. You need to work hard <em>and</em> have talent, and frankly, luck with having a vast amount of money, else you won’t get anywhere. There are ways to build yourself into it and be competitive within a reasonable budget, but here is where I have experienced the most demoralizing denials. Here, there are people who have been in the sport since they couldn’t walk to absolute prodigies where they sit in a car and all of a sudden set a track record. The spectrum is so vast with a similar feeling of standing at the Grand Canyon’s to hiking Mount Rainier. You feel little. But you do it because you love it, you start hiking up knowing you’re going to get beat but you’ll only get stronger. So you keep going and moving those dead legs further up the hill, perhaps theres a bear or you slip and tumble back a bit, but that’s okay because the prize is just upwards, you can see it. See, with hiking, some people may tap out, some people are much more in shape because they worked hard and can fly past you. But in racing, there are people who can create avalanches, you can try to dodge them and you probably will to an extent, but sooner or later there won’t be an exit. You just got to embrace the hit. And it hits hard.</p>
 
-<p>Basically, a message to incoming graduating students, make yourselves unique. Build a portfolio while in college, and the chances of you getting a job will be significantly higher. Do not be discouraged, do not be afraid to move to get the experience either.</p>
+<p>Losing is part of racing, emotions are hightened so words can fly off the handle, I understood that going in. But I didn’t expect was people who seemingly have strong opinions with random backings. They shut you down faster than you can say another word and their word is final. Perhaps, this is part of the sport. It doesn’t matter if you’re correct, it only matters with the number of people that agree. That demoralizes to a level that I haven’t really experienced in a sport. I’m not sure how to keep pushing past it.</p>
+
+<p>I have faced a lot of walls and obstacles in my life, surely this might be one of them. It’s hard to weaponize your youth in this situation because there are many people who pick up a controller or sit in a car and somehow are substantially faster than you. That part sucks a lot. It’s hard <em>not</em> to compare. I’ll get there, I know that, I love it, I know that, but nothing shuts you down faster than being denied by everyone around you.</p>
 
                 </p>
-                <p class="text-muted font-italic font-weight-light">Posted on June 23, 2016</p>
+                <p class="text-muted font-italic font-weight-light">Posted on August  7, 2020</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Workflows</h2>
+                <p class="lead">
+                    <h1 id="alfred">Alfred!</h1>
+<p>I’ve become obsessed with Alfred! Workflows have become incredibly important; streamlining your process makes a difference. I broke down and purchased the power pack, and I do not regret it. Ever since I downloaded and used Spectacles, I have noticed how effective tidy my workspace has become. I always thought; organized cluttered isn’t an indication of poor intelligence, but I recently experienced having an organized neat helps me not do mental sorts. To find what I need, I use an index-like database to retrieve what I need quickly. Cardinality is low.</p>
+
+<h2 id="anything-in-specific">Anything in specific?</h2>
+<p>Not really. Accessing commands, files, caching, et all is something I recommend. The difference between not using it and using it is like vanilla bash and zsh with plugins without the overhead.</p>
+
+<p>I am not sponsored, I wish.</p>
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on July 11, 2020</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Growing Soft and Technical Skills Asynchronously.</h2>
+                <p class="lead">
+                    <h1 id="too-much-to-update-but-here-are-my-thoughts">Too much to update but here are my thoughts</h1>
+<p>It’s been a while, but as usual, it’s because I’ve been busy. I’ve heavily focused my attention on building soft skills, leading me to narrow down further what career path do I want to get in. For so long, I have focused trying to get in, but now I am in, what do I do?</p>
+
+<h2 id="management">Management</h2>
+<p>Being a manager has been something I like, to foster someone’s growth, go bat for them, be real, and see where they go next. I never thought of myself relating to teachers, never thought I enjoyed helping others grow until I was teaching karate. To see someone’s growth, hitting their achievements, navigating them, and helping them not bump into the barriers too much was a rewarding feeling that is different. Being a manager, a good one requires a lot of soft skills. Understanding others, empathy, genuine, and open. While being honest when it’s hard, protecting them from unnecessary bureaucracy and praising when they do good or need it. Ultimately, being humble. Having a pyramid-based leadership where the tip of the pyramid is underneath, supporting the very bottom. That’s what I want to do, the question is, can I do it? Reading articles from a technical manager’s perspective is one that I easily relate and understand with minimal effort. Leading me to believe this is a field where I can flourish naturally because of my natural inclination.</p>
+
+<h2 id="ic">IC</h2>
+<p>There is something bliss about staying as an IC. It’s simple, the context of it; you do it. You don’t need to worry about repetition too much, convincing others, getting ammunition, and escalating without affecting your reputation. Especially helping the team meet deadlines. Not because I, myself, believe engineers need to meet strict deadlines, sometimes the scope of the goals is much more comprehensive than anticipated. All in all, your job is to do. The founder of the company I work for is happy at the senior level IC, has no interest in going further. I can’t blame him. Normal life is a blissful one. As arbitrary as it is.</p>
+
+<h2 id="security">Security</h2>
+<p>This section can be classified as an IC, but it is its own section due to recent pursuits. I have been learning what it entails in a company and mere speculation and depiction of others’ views. There are many facets here with no clear path, often stumbling in, with or without intention. The opportunity seems to present itself without prompting so. Like many database engineers, so perhaps it will display in a time where it is least expected. I still really want to pursue, but I need to learn more about what it is and what do I want to specialize in. I will continue to learn, broaden my scope of knowledge, and try to specialize in one facet.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>All in all, I’ve been flip flopping between growing technical skills and soft skills. You may be wondering, “where is this asynchronous that the title mentions”. Well, it’s here. Learning about a field requires actually learning the technical aspects, to specialize in something, particular the field I am, requires technical skills. Understanding the different interactions vastly grows your understanding, strengthens my “jack of all trades” mindset I have but currently, slowly but surely, becoming a master of a couple of things. That just takes time and can be a fall-back marketing pitch to companies who could use my technical expertise. While doing this in my free time, I have also picked up many books to broaden my understanding. The two that come up are recommended by my mentor; “Peak Performance in Tennis: The Ultimate Guide to Mental Fitness” and “Atomic Habits”. Those two have been great, understanding soft skills with teaching and what it means as well as in depth conversations about habits; what it is, how to build/dismantle, and why we have habits. Reading books hasn’t been really a thing of mine, particularly non-technical as it wasn’t my goal at the start. But as I strive for senior status, there is more than being technical, it’s about guiding, understand peak performance and using habits to solve new problems.</p>
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on July 11, 2020</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Near One Year Remotie And 2020</h2>
+                <p class="lead">
+                    <h1 id="been-a-minute">Been a minute</h1>
+<p>Much has happened in the near one year since my return to Seattle. I’ve realized being a remotie makes it easy to sit all day. It’s hard to get time to go out because you’re home all day, and after working you got to cook or run to the store. Before you know it, it’s 9pm and you still got dishes to do. I don’t know how but living alone was much easier.</p>
+
+<h2 id="to-the-point">To the point</h2>
+<p>Being remote has been an amazing experience because I’ve been so fortunate to be on a team that is already diversified yet we remain strongly connected. There are times I wish I was back in the office as would anyone else, yet I always go back to loving remote life. It does come with perks; there is no commute and you can cook your own meals without having to prep the night before or get it catered (not that I’m complaining about free food but sometimes there is no healthy option yet it’s free so you can’t deny it). I wish I had some sort of list of points to write about, but honestly my expectations hasn’t been any different than my idea of what remote life was before and the 6 month checkin. I am going to give myself a pat on the back, I have <em>got</em> to give it to myself on a platter, I really thought it through. I figured out what remote life was like before I was in it, I think that makes me a genius.</p>
+
+<h2 id="2020">20/20</h2>
+<p>I can’t get enough that 2020 vision theme this year, it is <em>the</em> year to be in hindsight. Can’t have any post mortems this year since we cannot end those meetings with hindsight 2020 because we <em>in</em> it. Yeah!
+Sarcasm(?) aside, there is a lot I want to achieve in 2020. The first month of every year I get way too hyped about things that could be and not so much of what I can be. I disliked the concept of making resolutions every year with my family at the table growing up because no one ever held each other or ourselves to that standard. We always forgot what our resolutions were, it made a great idea so pointless. However, I do notice a tendency in myself and sometimes others, making resolutions that are not tangible, they’re abstract or farfetched without any implied paths to achieve that resolution. Therefore, really all it does is make it moot. I’ve been overcoming my fear of being open, being online, vulnerable to others thoughts of me. And this year, I want to get over it. I come from a cybersecurity mindset, I hate that the more, I give the more there is for someone or something to manipulate. But in the end, life is a risk and living in fear only holds you back. Starting this blog was big for me, sharing these thoughts is even bigger. That is what I want to kick off 2020 with.</p>
+
+<h2 id="what-goals">What goals</h2>
+<p>I want to read a lot.</p>
+
+<h2 id="another-goal">Another goal</h2>
+<p>I want to try a new experience, like bungie jumping or sky diving. Something that puts me in a situation where if I say, “If I die, I die.” <insert shrug="" emoji=""></insert></p>
+
+<h2 id="yeah">Yeah?</h2>
+<p>Yep. I want to develop something.</p>
+
+<h2 id="tangible">Tangible</h2>
+<p>I want to compete in karting or some sort of C class racing group at COTA. I just want to be out there, injecting adrenaline.</p>
+
+<h2 id="another">Another?</h2>
+<p>I want to achieve senior engineer, therefore, soaking up information and utilizing the information into action, to display to others of where I am at and what I am capable of.</p>
+
+<h2 id="is-that-possible">Is that possible?</h2>
+<p>Not really up to me but I can try.</p>
+
+<h2 id="i-dont-care-about-your-goals">I don’t care about your goals</h2>
+<p>I would love to do some sort of stand up comedy session. Now <em>that</em> is uncomfortable.</p>
+
+<h2 id="thanks">Thanks.</h2>
+<p>I hope to write more, write better, and entertain. I got a book called “On Writing Well”. Let’s see.</p>
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on February  9, 2020</p>
                 <hr />
             </div>
         </div>
@@ -127,9 +206,21 @@
       <span class="webjeda">3</span>
     
   
+    
+      <a href="/page4/">4</a>
+    
+  
+    
+      <a href="/page5/">5</a>
+    
+  
+    
+      <a href="/page6/">6</a>
+    
+  
 
   
-    <span>Next &raquo;</span>
+    <a href="/page4/">Next &raquo;</a>
   
 </div>
 
@@ -138,7 +229,12 @@
         <!-- Footer -->
 <footer class="footer mt-auto py-3 bg-dark text-center">
         <div class="container">
-            <span class="text-muted">Copyright &copy; Jaryd Remillard 2019</span>
+
+            <ul class="list-unstyled">
+                <li><a href="https://twitter.com/KarateDBA">Twitter</a> | <a href="https://www.linkedin.com/in/jarydremillard/">LinkedIn</a></li>
+            </ul>
+            
+            <span class="text-muted">Copyright &copy; Jaryd Remillard 2021</span>
         </div>
 </footer>
 <!-- Footer -->

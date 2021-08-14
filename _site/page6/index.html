@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="bg-dark">
+    <head>
+        <title>Home - Remillard's Thoughts</title>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jaryd Remillard">
+
+
+<meta name="description" content="This is a place to put my thoughts down, as well as tutorials and accomplishments, either emotionally, mentally, physically, or career wise. I hope that sharing this part of my life can help others accomplish things they wish.">
+
+
+
+<meta property="title" content="Home">
+
+            <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="/vendor/google-code-prettify/prettify.js"></script>
+    <link href="/vendor/google-code-prettify/prettify.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/default.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+    </head>
+    <body id="page-top" class="bg-light">
+        <header>
+    <div class="container-fluid text-center text-break">
+        <h1><a href="/">a simple blog for various thoughts and examples</a></h1>
+    </div>
+</header>
+        
+        <!-- post content start -->
+        <section id="post" class="container-fluid">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Top MySQL Queries for New Database Administrators</h2>
+                <p class="lead">
+                    <p>Before entering the field of database administration, I wanted to look up what common queries they used to help solve any issues. Upon searching, I found some basic commands that the database administrator’s (DBA) used, although, my personal experience has been slightly different. I found that DBA’s don’t really use a handful of queries to solve issues, but rather various scripts and software to help debug problems. However, to start off with some groundwork, I found that these 3 MySQL queries helped me start to understand what and why these various scripts and software did what they did. Also, note that I typically learn best when pushed into the firehose.</p>
+
+<h3 id="1-explain-how-to-optimizing-queries">1. Explain How To Optimizing Queries</h3>
+
+<p>The EXPLAIN query is often used with Data Manipulation Language (DML) queries to help you optimize queries, to simply put, make them run faster and better. Although this query can be a bit to understand at first, it was one of the few queries that were never mentioned in most commonly top result articles on MySQL queries. I wanted newer DBA’s to find this, and look into it, to help them better their databases. To help understand this query, you can look into the <a href="https://dev.mysql.com/doc/refman/8.0/en/using-explain.html">MySQL documentation</a>, and supplement it with various chapters from <a href="https://www.amazon.com/Joe-Celkos-SQL-Smarties-Fourth/dp/0123820227">Joe Celko’s book</a>.</p>
+
+<h3 id="2-getting-the-number-of-rows-in-atable">2. Getting The Number of Rows in a Table</h3>
+
+<p>I never thought how often this query would be run, but surprisingly it is a lot more than expected. I have seen software developers and other DBA’s do this command similarly, and although which one is correct is trivial as they are essentially the same, one way could help you transition better into a different but same SQL database. The query to count the number of rows in a table follows the syntax of SELECT COUNT(1) FROM table whereas the query I am talking about is SELECT COUNT(*) FROM table</p>
+
+<p>Now, in this <a href="https://stackoverflow.com/questions/1221559/count-vs-count1-sql-server">StackOverflow post</a>, there is no difference between COUNT(1) and COUNT(<em>) , however, in an <a href="https://www.quora.com/What-are-the-most-useful-MySQL-queries">AskTOM post</a> from Oracle, they are stating there is a difference for Oracle DB’s, stating that COUNT(1) is a non-optimized version of COUNT(</em>) . So far, that seems like it’s pretty much it. To do one or the other seems unimportant, but what is important is how to get the number of rows. This query could be used to compare between a replica and snapshotted replica, to ensure that data has been transferred. Please note that this is NOT a surefire way to check, but can be a little extra for natural nature of paranoia as DBA’s.</p>
+
+<h3 id="3-show-me-what-the-table-looks-like-incode">3. Show Me What the Table Looks Like in Code</h3>
+
+<p>Compared to the previous two other queries, this might be the simplest but often overlooked when new DBA’s start. This query has helped me immensely with familiarizing myself with unknown tables, and to get a better idea of what is happening and how to improve it. DESCRIBE table or DESC table shows the layout of the table structure in code, you can see what is the foreign key, primary key, what data types are used, and so on. You do have to select a database beforehand, but this can help you with understanding your environment furthermore.</p>
+
+<h3 id="there-is-much-more-to-learn-there-always-willbe">There is Much More to Learn, There Always Will Be</h3>
+
+<p>To many, these queries may be simple and second nature, but to me and hopefully many other new DBA’s, this content is helpful. This is not even hitting the tip of the iceberg as a DBA, there is so much to learn and there always will be, but hopefully, this gets you started.</p>
+
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on September 30, 2018</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Recovering Data From A Failing Hard Drive</h2>
+                <p class="lead">
+                    <p>While attending school a couple years ago, I had a friend come up to me in a frenzy, claiming his computer won’t turn on the day before finals containing all his homework as well as programs he wrote for Computer Science class. The laptop he handed me was a thick 2010 MacBook Pro that brought back nostalgia of carrying the dumbbell weight in my backpack to and from school.</p>
+
+<p>When I attempted to boot it up, I noticed that it would struggle to boot into the OS, and if it did, it has horrible lag and eventually shutdown. I was able to deduce this to a corrupted OS, as he mentioned he has not updated it in a while. I did a repair on the disk from the disk repair utility upon bootup, and noticed the hard drive was formatted incorrectly. This made me start to question the years of IT experience I had.</p>
+
+<p>Safe mode was not working, I could not reinstall the OS, repairing the disk did not work, I could not boot into the system, nor could I format a hard drive with the OS and boot into that. All I was left with is single user mode, which fortunately I was able to get root through an exploit at the time.</p>
+
+<p>/sbin/fsck -y<br />
+/sbin/mount -wu / # Mounts the volume of root directory with r/wOnce I logged in, I would try to move files onto a USB I plugged in, occasionally the computer would crap itself, which led me to believe that the computers hard drive is failing, and I knew I had to make it quick as how much time I had was unknown.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>I checked the SMART status of my drive:diskutil info disk0</td>
+      <td>grep -i smart</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The output was exactly what I was expecting, failing. I plugged in the USB external hard drive and searched for it by doing ls /dev/disk*</p>
+
+<p>Luckily it popped up after a few ls commands as /dev/disk1s2. So the next step is to create a directory in volume, than mount it and copy files over to that directory, than eject it, the hard drive should than contain the files.</p>
+
+<p>mkdir /Volumes/hdd<br />
+mount_hfs /dev/disk1s2/ /Volumes/hddLuckily I had no errors at this point. After getting with my friend to discuss where and what files he wanted to keep, I did a multiple cp -R commands, and copied the files over to the directory.</p>
+
+<p>I then ejected it, and luckily the files moved out without any issues. Boom!</p>
+
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on September 28, 2018</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">3 Tips To Keep Your Home Network Secure</h2>
+                <p class="lead">
+                    <p>As technology around us becomes more advanced and connected to the internet, there becomes more of a reach of vulnerability with our day to day lives. While going to friends and family houses, I have noticed that regular consumer or day-to-day people are hardly aware of how easy it is for hackers to own their network. So to spread awareness, here are three tips to help keep your home network secure.</p>
+
+<h2 id="1-set-a-router-password">1. Set a router password</h2>
+<p>Most people are not aware that you can access your routers machine by entering it’s <a href="https://en.wikipedia.org/wiki/IP_address">Internet Protocol (IP)</a> Address when connected to your WiFi. You can find the router or modems IP address by opening up Command Prompt for Windows and typing in the following code.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipconfig
+</code></pre></div></div>
+<p>Scroll down using the scroll bar, and look for a set of numbers by ‘Default Gateway’, that will look something along the lines of 10.0.0.1 or 192.168.1.1</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>If you are on an Apple machine, you open Terminal and type in netstat -rn</td>
+      <td>grep default to figure out what the router IP address is. Or, you can open up System Preferences &gt; Network &gt; Click ‘Advanced’ &gt; Click ‘TCP/IP’. From there, there will be a row that says router, followed by the IP address.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you copy and paste that address into your web browser, it should pop up with a login pop up, or a login page. If you have not set your router or modems password, the username should be admin, and the password would be password. In some cases, there is not a username, and in some cases, there will no username and password. If you want to be sure, you can visit <a href="https://192-168-1-1ip.mobi/default-router-passwords-list/">this page</a> to see what your factory default password is.</p>
+
+<p>If you are able to get in, look around and set the router password to something secure that is easy to remember, but difficult to guess. You can use <a href="https://www.lastpass.com/password-generator">LastPass password generator</a> to generate a secure but easy to read passwords.</p>
+
+<h2 id="2-ensure-your-wifi-is-set-to-wpawpa2">2. Ensure your WiFi is set to WPA/WPA2</h2>
+<p>By default most routers when initially are set, set the WiFi encryption to WPS or WEP. Those encryptions can be pretty easily cracked, which can lead to consequences of intruders breaking into your network, and an ability to spy on your network activity. But rather, the fix is to change that to WPS to WPA/WPA2 or just WPA2. This makes it near impossible for people to break into your network.</p>
+
+<p>You can make this change on your computer, but it would be best to do this through your router or modem. Showing how to do this can be difficult because every router varies in terms of where this is, but the general idea of where you want to look for is, first, log onto your router. Then look for the menu and go to Wireless &gt; Click ‘Security Mode’ and select WPA/WPA2.</p>
+
+<h2 id="3-frequently-update-router-firmware">3. Frequently Update Router Firmware</h2>
+<p>The router you have has essentially its own operating system. Just like software or your computer needs to be updated, so does yours. This can help apply any new security patches or bug fixes. You can update the firmware from the webpage on your router and mode, access via it’s IP.</p>
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on September  6, 2018</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-break">
+                <h2 id="post-title">Breaking Into The Technology Field</h2>
+                <p class="lead">
+                    <p>A quick introduction: I started programming at the young age of 12 when I became fascinated with code after my friend showed me how websites were made. Since then, I have created a wide range of websites; a social network, text based games, command line interface, administrative and analytical tools, shells, and an intrusion detection software. My love and curiosity for programming has continued to grow ever since I landed an internship in software development and then as a field service technician. Now I am currently a part time IT Assistant for a local company, which I manage and set up the company’s web servers, phone system, work and network stations, and provide web development, in parallel with attending a local university.</p>
+
+<p>As a college student attending a local university in one of the biggest tech hub cities, it’s horribly competitive to get any internships or part time tech jobs, it’s to the point that it seems like all it takes is knowing the right person or starting your own company. I believe I can speak on behalf of the people in a similar situation, that it sucks. It sucks when entry level jobs require you to have a B.S. in C.S. along with 3–5 years of experience, making it nearly impossible for us young ones to get into this field. Although this is not an article to complain, I do believe that part of this is the cause of business’ not wanting to take a risk on young engineers.</p>
+
+<blockquote>
+  <p>As a current college student attending a local university in one of the biggest tech hub cities, it’s horribly competitive to get any internships or part time tech jobs.</p>
+</blockquote>
+
+<p>Understandably, it seems smarter from a business and financial standpoint to not take a risk on a young engineer, when you can get yourself an experienced engineer with decades of experience. But frankly, that supply of senior engineers will slowly diminish the longer you do not take a risk on fresh graduates or students.</p>
+
+<p>In all honesty, there is plenty of entry level engineering jobs that do not require experience, it’s just somewhere else. I do live in a tech hub, where Amazon, Microsoft, and several other big companies have started, thus flooding the city with people that migrated to get a job, and thus the demand is more, and there is a limited amount of positions. It’s simply supply and demand issue. Thus increases the competition as there is more applicants than is jobs, obviously why it has become more difficult to get into the tech field.</p>
+
+<p>Basically, a message to incoming graduating students, make yourselves unique. Build a portfolio while in college, and the chances of you getting a job will be significantly higher. Do not be discouraged, do not be afraid to move to get the experience either.</p>
+
+                </p>
+                <p class="text-muted font-italic font-weight-light">Posted on June 23, 2016</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!-- pagination -->
+
+<div class="pagination d-flex justify-content-center">
+  
+    <a href="/page5/">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/">1</a>
+    
+  
+    
+      <a href="/page2/">2</a>
+    
+  
+    
+      <a href="/page3/">3</a>
+    
+  
+    
+      <a href="/page4/">4</a>
+    
+  
+    
+      <a href="/page5/">5</a>
+    
+  
+    
+      <span class="webjeda">6</span>
+    
+  
+
+  
+    <span>Next &raquo;</span>
+  
+</div>
+
+        <!-- post content end -->
+
+        <!-- Footer -->
+<footer class="footer mt-auto py-3 bg-dark text-center">
+        <div class="container">
+
+            <ul class="list-unstyled">
+                <li><a href="https://twitter.com/KarateDBA">Twitter</a> | <a href="https://www.linkedin.com/in/jarydremillard/">LinkedIn</a></li>
+            </ul>
+            
+            <span class="text-muted">Copyright &copy; Jaryd Remillard 2021</span>
+        </div>
+</footer>
+<!-- Footer -->
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="/vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    </body>
+</html>
